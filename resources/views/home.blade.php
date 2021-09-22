@@ -10,12 +10,8 @@
 
 <body>
 <h1>это тестовая страница Home из web.php</h1>
-Вы ввели имя:{{$name}}
+Вы ввели имя:{{$name}}<BR>
 число:{{$res}}
-<BR>
-{{ route('post', ['id'=>3,'slug'=>'daf']) }}
-<BR>
-{{ route('admin.post', ['id'=>3]) }}
 </body>
 
 </html>

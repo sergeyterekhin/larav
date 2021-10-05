@@ -2,10 +2,9 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class ChangeTimestampPostsTable extends Migration
+class AddRubricToPosts extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +14,7 @@ class ChangeTimestampPostsTable extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-        \Illuminate\Support\Facades\DB::statement("ALTER TABLE `posts` CHANGE `created_at` `created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP, CHANGE `updated_at` `updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP;");
+          $table->integer('rubric_id');
         });
     }
 
@@ -27,7 +26,7 @@ class ChangeTimestampPostsTable extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            \Illuminate\Support\Facades\DB::statement("ALTER TABLE `posts` CHANGE `created_at` `created_at` TIMESTAMP NULL, CHANGE `updated_at` `updated_at` TIMESTAMP NULL; ");
+            $table->dropColumn('rubric_id');
         });
     }
 }
